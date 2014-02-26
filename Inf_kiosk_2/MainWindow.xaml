@@ -1,0 +1,102 @@
+﻿<Window x:Class="Inf_kiosk_2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="350" Width="525">
+    <Window.Resources>
+        <Storyboard x:Key="ExpandStoryboard">
+            <DoubleAnimation Storyboard.TargetProperty="RenderTransform.ScaleX" 
+        To="1" Duration="0:0:0.1" />
+            <DoubleAnimation Storyboard.TargetProperty="RenderTransform.ScaleY" 
+        To="1" Duration="0:0:0.1" />
+        </Storyboard>
+        <Storyboard x:Key="CollapseStoryboard">
+            <DoubleAnimation Storyboard.TargetProperty="RenderTransform.ScaleX" 
+        To="1.02" Duration="0:0:0.1" />
+            <DoubleAnimation Storyboard.TargetProperty="RenderTransform.ScaleY" 
+        To="1.02" Duration="0:0:0.1" />
+        </Storyboard>
+        <Style TargetType="Button">
+            <Style.Setters>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <ContentPresenter>
+                                <ContentPresenter.ContentTemplate>
+                                    <DataTemplate>
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition></ColumnDefinition>
+                                                <ColumnDefinition></ColumnDefinition>
+                                                <ColumnDefinition></ColumnDefinition>
+                                                <ColumnDefinition></ColumnDefinition>
+                                                <ColumnDefinition></ColumnDefinition>
+                                            </Grid.ColumnDefinitions>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition></RowDefinition>
+                                                <RowDefinition></RowDefinition>
+                                                <RowDefinition></RowDefinition>
+                                            </Grid.RowDefinitions>
+                                            <Image Grid.Column="4" Grid.Row="2" 
+                                                   Margin="0,0,3,0">
+                                            </Image>
+                                            <TextBlock Grid.ColumnSpan="5" Grid.Column="0" Grid.Row="0" Grid.RowSpan="3" VerticalAlignment="Stretch" TextAlignment="Center" 
+                                                   HorizontalAlignment="Stretch" Text="{Binding}" 
+                                                   TextWrapping="Wrap" Foreground="#FF007D00">
+                                                <TextBlock.Background>
+                                                    <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+                                                        <GradientStop Color="#6D29D319" Offset="0.152" />
+                                                        <GradientStop Color="#1F38CE28" Offset="0.496" />
+                                                        <GradientStop Color="#5A29D319" Offset="0.83" />
+                                                        <GradientStop Color="#7629D319" Offset="0" />
+                                                        <GradientStop Color="#7629D319" Offset="1" />
+                                                    </LinearGradientBrush>
+                                                </TextBlock.Background>
+                                            </TextBlock>
+                                        </Grid>
+                                    </DataTemplate>
+                                </ContentPresenter.ContentTemplate>
+                            </ContentPresenter>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="Background">
+                    <Setter.Value>
+                        <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+                            <GradientStop Color="#5129D319" Offset="0" />
+                            <GradientStop Color="#05FFFFFF" Offset="0.495" />
+                            <GradientStop Color="#5129D319" Offset="1" />
+                        </LinearGradientBrush>
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="Effect">
+                    <Setter.Value>
+                        <DropShadowEffect Opacity="0.5"/>
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="Foreground" Value="#FF276D0A" />
+                <Setter Property="FontSize" Value="40" />
+                <Setter Property="FontStretch" Value="Normal" />
+                <Setter Property="FontWeight" Value="Normal" />
+                <Setter Property="FontStyle" Value="Italic" />
+                <Setter Property="FontFamily" Value="Microsoft PhagsPa" />
+                <Setter Property="Margin" Value="20"/>
+                <Setter Property="RenderTransform">
+                    <Setter.Value>
+                        <ScaleTransform ScaleX="1" ScaleY="1" CenterX="100" CenterY="100"/>
+                    </Setter.Value>
+                </Setter>
+            </Style.Setters>
+            <Style.Triggers>
+                <EventTrigger RoutedEvent="Button.MouseEnter">
+                    <BeginStoryboard Storyboard="{StaticResource CollapseStoryboard}" />
+                </EventTrigger>
+                <EventTrigger RoutedEvent="Button.MouseLeave">
+                    <BeginStoryboard Storyboard="{StaticResource ExpandStoryboard}" />
+                </EventTrigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+    <Grid Name="Grid1" >
+        <UniformGrid Name="UniformGrid1" Width="Auto" Height="Auto" Margin="0" />
+    </Grid>
+</Window>
