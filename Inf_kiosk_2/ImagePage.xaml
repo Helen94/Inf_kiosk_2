@@ -1,0 +1,75 @@
+﻿<Page x:Class="Inf_kiosk_2.ImagePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      d:DesignHeight="650" d:DesignWidth="950"
+	Title="ImagePage">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="34*"/>
+            <ColumnDefinition Width="117*"/>
+            <ColumnDefinition Width="68*"/>
+            <ColumnDefinition Width="220*"/>
+            <ColumnDefinition Width="80*"/>
+            <ColumnDefinition Width="90*"/>
+            <ColumnDefinition Width="80*"/>
+            <ColumnDefinition Width="220*"/>
+            <ColumnDefinition Width="35*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="16*"/>
+            <RowDefinition Height="60*"/>
+            <RowDefinition Height="176*"/>
+            <RowDefinition Height="11*"/>
+            <RowDefinition Height="40*"/>
+            <RowDefinition Height="22*"/>
+        </Grid.RowDefinitions>
+        <Grid.Background>
+            <ImageBrush ImageSource="Images/bgmain.jpg"/>
+        </Grid.Background>
+        <Image Grid.ColumnSpan="5" Grid.Column="3"  Grid.Row="1" Grid.RowSpan="2" Source="Resources/proba.jpg"/>
+
+        <Button Name="Back" Grid.Column="1"  Grid.Row="1"  >
+            <Button.Template>
+                <ControlTemplate>
+                    <Grid>
+                        <Border>
+                            <Border.Background>
+                                <ImageBrush ImageSource="Images/back.png"/>
+                            </Border.Background>
+                        </Border>
+                    </Grid>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        <Button Grid.Column="4"  Grid.Row="4" >
+            <Button.Template>
+                <ControlTemplate>
+                    <Grid>
+                        <Border>
+                            <Border.Background>
+                                <ImageBrush ImageSource="Images/back2.png"/>
+                            </Border.Background>
+                        </Border>
+                    </Grid>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        <Button Grid.Column="6" Grid.Row="4" >
+            <Button.Template>
+                <ControlTemplate>
+                    <Grid>
+                        <Border>
+                            <Border.Background>
+                                <ImageBrush ImageSource="Images/forward.png"/>
+                            </Border.Background>
+                        </Border>
+                    </Grid>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        
+    </Grid>
+</Page>

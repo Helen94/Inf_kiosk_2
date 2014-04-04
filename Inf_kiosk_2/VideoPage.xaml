@@ -1,0 +1,121 @@
+﻿<Page x:Class="Inf_kiosk_2.VideoPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      d:DesignHeight="650" d:DesignWidth="950"
+	Title="VideoPage"
+      Name="VPage">
+    <Page.Resources>
+        <Storyboard x:Key="Video" SlipBehavior="Slip" CurrentTimeInvalidated="Storyboard_CurrentTimeInvalidated">
+            <MediaTimeline Source="C:\Users\Елена\Desktop\Inf_kiosk_2\Inf_kiosk_2\bin\Debug\1.avi" Storyboard.TargetName="Video" />
+        </Storyboard>
+    </Page.Resources>
+    <Page.Triggers>
+        <EventTrigger RoutedEvent="MediaElement.Loaded">
+            <EventTrigger.Actions>
+                <BeginStoryboard Name="mediaStoryboard" Storyboard="{StaticResource Video}">
+                </BeginStoryboard>
+            </EventTrigger.Actions>
+        </EventTrigger>
+        <EventTrigger RoutedEvent="Button.Click" SourceName="Play">
+            <EventTrigger.Actions>
+                <BeginStoryboard Name="playVideo" Storyboard="{StaticResource Video}"></BeginStoryboard>
+            </EventTrigger.Actions>
+        </EventTrigger>
+        <EventTrigger RoutedEvent="Button.Click" SourceName="Pause">
+            <EventTrigger.Actions>
+                <PauseStoryboard BeginStoryboardName="playVideo"></PauseStoryboard>
+            </EventTrigger.Actions>
+        </EventTrigger>
+        <EventTrigger RoutedEvent="Button.Click" SourceName="Resume">
+            <EventTrigger.Actions>
+                <ResumeStoryboard BeginStoryboardName="playVideo"></ResumeStoryboard>
+            </EventTrigger.Actions>
+        </EventTrigger>
+    </Page.Triggers>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="18*"/>
+            <ColumnDefinition Width="60*"/>
+            <ColumnDefinition Width="35*"/>
+            <ColumnDefinition Width="99*"/>
+            <ColumnDefinition Width="45*"/>
+            <ColumnDefinition Width="6*"/>
+            <ColumnDefinition Width="45*"/>
+            <ColumnDefinition Width="9*"/>
+            <ColumnDefinition Width="45*"/>
+            <ColumnDefinition Width="95*"/>
+            <ColumnDefinition Width="18*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="32*"/>
+            <RowDefinition Height="120*"/>
+            <RowDefinition Height="318*"/>
+            <RowDefinition Height="27*"/>
+            <RowDefinition Height="29*"/>
+            <RowDefinition Height="80*"/>
+            <RowDefinition Height="44*"/>
+        </Grid.RowDefinitions>
+        <Grid.Background>
+            <ImageBrush ImageSource="Images/bgmain.jpg"/>
+        </Grid.Background>
+        <MediaElement x:Name="Video" LoadedBehavior="Manual" UnloadedBehavior="Close"
+                      MediaOpened="Video_MediaOpened" Loaded="Video_Loaded"  Grid.Row="1" Grid.RowSpan="2" Grid.Column="3" Grid.ColumnSpan="7"/>
+        <Button Name="Pause"  Grid.Row="5" Grid.Column="6">
+            <Button.Template>
+                <ControlTemplate>
+                    <Grid>
+                        <Border>
+                            <Border.Background>
+                                <ImageBrush ImageSource="Images/pause.png"></ImageBrush>
+                            </Border.Background>
+                        </Border>
+                    </Grid>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        <Button Name="Play" Grid.Row="5" Grid.Column="8">
+            <Button.Template>
+                <ControlTemplate>
+                    <Grid>
+                        <Border>
+                            <Border.Background>
+                                <ImageBrush ImageSource="Images/stop.png"></ImageBrush>
+                            </Border.Background>
+                        </Border>
+                    </Grid>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        <Button Name="Resume" Grid.Row="5" Grid.Column="4">
+            <Button.Template>
+                <ControlTemplate>
+                    <Grid>
+                        <Border>
+                            <Border.Background>
+                                <ImageBrush ImageSource="Images/play.png"></ImageBrush>
+                            </Border.Background>
+                        </Border>
+                    </Grid>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        <Button Name="Back" Grid.Column="1" Grid.Row="1" >
+            <Button.Template>
+                <ControlTemplate>
+                    <Grid>
+                        <Border>
+                            <Border.Background>
+                                <ImageBrush ImageSource="Images/back.png"></ImageBrush>
+                            </Border.Background>
+                        </Border>
+                    </Grid>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        <Slider  x:Name="TimerSlider"  ValueChanged="TimerSlider_ValueChanged" Grid.Column="3" Grid.Row="3"  Grid.ColumnSpan="7" Foreground="#FF37662F" Background="#006DC185" />
+    </Grid>
+</Page>

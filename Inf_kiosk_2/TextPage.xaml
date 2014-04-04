@@ -1,0 +1,55 @@
+﻿<Page x:Class="Inf_kiosk_2.TextPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      d:DesignHeight="650" d:DesignWidth="950"
+	Title="TextPage">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="18*"/>
+            <ColumnDefinition Width="60*"/>
+            <ColumnDefinition Width="35*"/>
+            <ColumnDefinition Width="320*"/>
+            <ColumnDefinition Width="18*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="16*"/>
+            <RowDefinition Height="60*"/>
+            <RowDefinition Height="176*"/>
+            <RowDefinition Height="22*"/>
+        </Grid.RowDefinitions>
+        <Grid.Background>
+            <ImageBrush ImageSource="Images/bgmain.jpg"/>
+        </Grid.Background>
+        <Button Name="Back" Grid.Row="1" Grid.Column="1" >
+            <Button.Template>
+                <ControlTemplate>
+                    <Grid>
+                        <Border>
+                            <Border.Background>
+                                <ImageBrush ImageSource="Images/back.png"></ImageBrush>
+                            </Border.Background>
+                        </Border>
+                    </Grid>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        <RichTextBox  Name="RichTextBox1" Grid.RowSpan="2" Grid.Column="3" Grid.Row="1" VerticalScrollBarVisibility="Visible" >
+            <RichTextBox.BorderBrush>
+                <LinearGradientBrush EndPoint="0,20" MappingMode="Absolute" StartPoint="0,0">
+                    <GradientStop Color="#FFABADB3" Offset="0.05"/>
+                    <GradientStop Color="#FFE2E3EA" Offset="0.07"/>
+                    <GradientStop Color="#FF4FA45B" Offset="1"/>
+                </LinearGradientBrush>
+            </RichTextBox.BorderBrush>
+            <FlowDocument>
+                <Paragraph>
+                    <Run/>
+                </Paragraph>
+            </FlowDocument>
+        </RichTextBox>
+
+    </Grid>
+</Page>

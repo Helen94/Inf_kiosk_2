@@ -4,7 +4,6 @@ namespace Inf_kiosk_2
 {
     class TableSize
     {
-
         public void NumberCell(int n, out int colCount, out int rowCount)
         {
             colCount = (int)Math.Floor(Math.Sqrt(n * 4d / 3d));
