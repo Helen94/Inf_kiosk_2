@@ -26,8 +26,8 @@ namespace Inf_kiosk_2
             Title = "Информационный киоск";
 
             string cur = Directory.GetCurrentDirectory();
-            UniformGrid1.Background = new ImageBrush(new BitmapImage(new Uri(cur + @"\bgmain.jpg")));
 
+            UniformGrid1.Background = Utils.Utils.GetBrushFromBitmap(Properties.Resources.bgmain);
             string[] directories = Directory.GetDirectories(@".\Kiosk_direc");
 
             DirectoryInfo directory = new DirectoryInfo(@".\Kiosk_direc");
