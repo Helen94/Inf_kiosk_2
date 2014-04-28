@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
@@ -15,22 +16,43 @@ namespace Inf_kiosk_2
     /// </summary>
     public partial class MainPage
     {
-        readonly TableSize _tablesize = new TableSize();
+        private readonly TableSize _tablesize = new TableSize();
+
+        public string RootDir = @".\Kiosk_direc";
+        public string CurrentDir = @".\Kiosk_direc";
+
+        public bool IsRootDir
+        {
+            get { return RootDir == CurrentDir; }
+        }
+
+        public void StepUp()
+        {
+            if (IsRootDir)
+            {
+                throw new Exception("Нельзя подняться выше корневого каталога");
+            }
+            CurrentDir = Regex.Match(CurrentDir, @".*(?=\\.*$)").Value;
+        }
 
         public Button Button;
+
         public MainPage()
         {
             InitializeComponent();
+            InitializeContent();
+        }
 
-
+        public void InitializeContent()
+        {
             Title = "Информационный киоск";
 
             string cur = Directory.GetCurrentDirectory();
 
             UniformGrid1.Background = Utils.Utils.GetBrushFromBitmap(Properties.Resources.bgmain);
-            string[] directories = Directory.GetDirectories(@".\Kiosk_direc");
+            string[] directories = Directory.GetDirectories(CurrentDir);
 
-            DirectoryInfo directory = new DirectoryInfo(@".\Kiosk_direc");
+            DirectoryInfo directory = new DirectoryInfo(CurrentDir);
             FileInfo[] files = directory.GetFiles();
 
             var filtered = files.Select(f => f).Where(f => (f.Attributes & FileAttributes.Hidden) == 0);
@@ -45,7 +67,6 @@ namespace Inf_kiosk_2
                 res.Add(f.ToString());
             }
 
-
             directories = res.ToArray();
 
             int dirCount = directories.Length;
@@ -55,31 +76,32 @@ namespace Inf_kiosk_2
 
             UniformGrid1.Rows = rowCount;
             UniformGrid1.Columns = colCount;
-           
+
+            UniformGrid1.Children.Clear();
 
             foreach (string s in directories)
             {
 
-                Button = new Button { Content = Path.GetFileName(s)};
+                Button = new Button {Content = Path.GetFileName(s)};
                 FileInfo fi = new FileInfo(s);
                 string ext = fi.Extension;
                 UniformGrid1.Children.Add(Button);
                 if (ext == ".txt")
                 {
                     Button.Click += ButtonText_Click;
-                }  
+                }
                 else if (ext == ".rtf")
                 {
                     Button.Click += ButtonText_Click;
-                }  
+                }
                 else if (ext == ".wmv")
                 {
                     Button.Click += ButtonVideo_Click;
-                }  
+                }
                 else if (ext == ".wma")
                 {
                     Button.Click += ButtonVideo_Click;
-                }  
+                }
                 else if (ext == ".m2t")
                 {
                     Button.Click += ButtonVideo_Click;
@@ -87,11 +109,11 @@ namespace Inf_kiosk_2
                 else if (ext == ".avi")
                 {
                     Button.Click += ButtonVideo_Click;
-                }  
+                }
                 else if (ext == ".mpg")
                 {
                     Button.Click += ButtonVideo_Click;
-                }  
+                }
                 else if (ext == ".mpeg")
                 {
                     Button.Click += ButtonVideo_Click;
@@ -122,57 +144,63 @@ namespace Inf_kiosk_2
                 }
             }
 
-           }
+        }
 
         private void ButtonDirectory(object sender, RoutedEventArgs e)
         {
+            //NavigationService nav = NavigationService.GetNavigationService(this);
+            //if (nav != null) nav.Navigate(new Uri("DirectoryPage.xaml", UriKind.RelativeOrAbsolute));
+
             NavigationService nav = NavigationService.GetNavigationService(this);
-            if (nav != null) nav.Navigate(new Uri("DirectoryPage.xaml", UriKind.RelativeOrAbsolute));
+            CurrentDir += "\\" + (sender as Button).Content;
+            if (nav != null)
+            {
+                InitializeContent();
+                nav.Navigate(new Uri("MainPage.xaml", UriKind.RelativeOrAbsolute));
+            }
+
         }
 
-        void ButtonText_Click(object sender, RoutedEventArgs e)
+        private void ButtonText_Click(object sender, RoutedEventArgs e)
         {
             //if (NavigationService != null)
-           //NavigationService.Navigate(new Uri("TextPage.xaml", UriKind.Relative));
+            //NavigationService.Navigate(new Uri("TextPage.xaml", UriKind.Relative));
 
             NavigationService nav = NavigationService.GetNavigationService(this);
             if (nav != null) nav.Navigate(new Uri("TextPage.xaml", UriKind.RelativeOrAbsolute));
         }
 
-         void ButtonVideo_Click(object sender, RoutedEventArgs e)
+        private void ButtonVideo_Click(object sender, RoutedEventArgs e)
         {
             NavigationService nav = NavigationService.GetNavigationService(this);
             if (nav != null) nav.Navigate(new Uri("VideoPage.xaml", UriKind.RelativeOrAbsolute));
         }
 
-         void ButtonImage_Click(object sender, RoutedEventArgs e)
-         {
-
-             NavigationService nav = NavigationService.GetNavigationService(this);
-             if (nav != null) nav.Navigate(new Uri("ImagePage.xaml", UriKind.RelativeOrAbsolute));
-         }
-        private void setImage(Image img)
+        private void ButtonImage_Click(object sender, RoutedEventArgs e)
         {
-            if (img != null)
-            {
 
-                var iconBitmapImage = new BitmapImage();
-                iconBitmapImage.BeginInit();
-                string cur = Directory.GetCurrentDirectory();
-
-                iconBitmapImage.UriSource = new Uri(cur + @"\directory.png");
-
-                iconBitmapImage.EndInit();
-                img.Source = iconBitmapImage;
-
-            }  
+            NavigationService nav = NavigationService.GetNavigationService(this);
+            if (nav != null) nav.Navigate(new Uri("ImagePage.xaml", UriKind.RelativeOrAbsolute));
         }
 
         private void Image_Loaded(object sender, RoutedEventArgs e)
         {
-            setImage(sender as Image);
+            var img = sender as Image;
+            if (img != null) 
+            {
+                var iconBitmapImage = new BitmapImage();
+                iconBitmapImage.BeginInit();
+                iconBitmapImage.UriSource = new Uri(RootDir + @"\directory.png", UriKind.Relative);
+                iconBitmapImage.EndInit();
+
+                img.Source = iconBitmapImage;
+            }
         }
-      
+
+        //private void Page_GotFocus(object sender, RoutedEventArgs e)
+        //{
+        //    InitializeContent();
+        //}
     }
-    }
+}
 
