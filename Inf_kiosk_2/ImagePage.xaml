@@ -29,7 +29,7 @@
         <Grid.Background>
             <ImageBrush ImageSource="Images/bgmain.jpg"/>
         </Grid.Background>
-        <Image Grid.ColumnSpan="5" Grid.Column="3"  Grid.Row="1" Grid.RowSpan="2" Source="Resources/proba.jpg"/>
+        <Image Grid.ColumnSpan="5" Grid.Column="3"  Grid.Row="1" Grid.RowSpan="2" Source="Images/Penguins.jpg"/>
 
         <Button Name="Back" Grid.Column="1"  Grid.Row="1"  >
             <Button.Template>

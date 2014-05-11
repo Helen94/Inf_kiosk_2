@@ -11,14 +11,15 @@ namespace Inf_kiosk_2
     /// </summary>
     public partial class TextPage
     {
-        public TextPage()
+        public TextPage(FileInfo currentFile)
         {
             InitializeComponent();
 
             TextRange tr = new TextRange(
             RichTextBox1.Document.ContentStart, RichTextBox1.Document.ContentEnd);
 
-            using (FileStream fs = File.Open("1.rtf", FileMode.Open))
+            //using (FileStream fs = File.Open("1.rtf", FileMode.Open))
+            using (FileStream fs = File.Open(currentFile.FullName, FileMode.Open))
             {
                 tr.Load(fs, DataFormats.Rtf);
             }

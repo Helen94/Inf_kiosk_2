@@ -11,6 +11,30 @@
         <Storyboard x:Key="Video" SlipBehavior="Slip" CurrentTimeInvalidated="Storyboard_CurrentTimeInvalidated">
             <MediaTimeline Source="C:\Users\Елена\Desktop\Inf_kiosk_2\Inf_kiosk_2\bin\Debug\1.avi" Storyboard.TargetName="Video" />
         </Storyboard>
+       <!-- <Style x:Key="ThumbStyle" TargetType="{x:Type Thumb}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Thumb}">
+                        <Ellipse  Stroke="LimeGreen">
+                            <Ellipse.Fill>
+                                <RadialGradientBrush>
+                                    <GradientStop Color="#FF80C780" Offset="0"/>
+                                    <GradientStop Color="#FF179C17" Offset="1"/>
+                                </RadialGradientBrush>
+                            </Ellipse.Fill>
+                        </Ellipse>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <ControlTemplate x:Key="SliderTemplate" TargetType="{x:Type Slider}">
+            <Track ViewportSize="1">
+                <Track.Thumb>
+                    <Thumb Style="{StaticResource ThumbStyle}"></Thumb>
+                </Track.Thumb>
+            </Track>
+        </ControlTemplate>-->
+
     </Page.Resources>
     <Page.Triggers>
         <EventTrigger RoutedEvent="MediaElement.Loaded">
@@ -116,6 +140,7 @@
                 </ControlTemplate>
             </Button.Template>
         </Button>
-        <Slider  x:Name="TimerSlider"  ValueChanged="TimerSlider_ValueChanged" Grid.Column="3" Grid.Row="3"  Grid.ColumnSpan="7" Foreground="#FF37662F" Background="#006DC185" />
+        <Slider  x:Name="TimerSlider"  ValueChanged="TimerSlider_ValueChanged" Grid.Column="3" Grid.Row="3"  Grid.ColumnSpan="7" >
+        </Slider>
     </Grid>
 </Page>

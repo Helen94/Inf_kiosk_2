@@ -6,9 +6,7 @@
       mc:Ignorable="d" 
       d:DesignHeight="650" d:DesignWidth="950"
 	Title="MainPage" ShowsNavigationUI="False">
-    
     <Page.Resources>
-        
         <Storyboard x:Key="ExpandStoryboard">
             <DoubleAnimation Storyboard.TargetProperty="RenderTransform.ScaleX" 
         To="1" Duration="0:0:0.1" />
@@ -43,7 +41,7 @@
                                                 <RowDefinition></RowDefinition>
                                             </Grid.RowDefinitions>
                                             <Image Grid.Column="4" Grid.Row="2" 
-                                                   Margin="0,0,3,0"  Loaded="Image_Loaded" >
+                                                   Margin="0,0,3,0" Loaded="Image_Loaded" >
                                             </Image>
                                             <TextBlock Grid.ColumnSpan="5" Grid.Column="0" Grid.Row="0" Grid.RowSpan="3" VerticalAlignment="Stretch" TextAlignment="Center" 
                                                    HorizontalAlignment="Stretch" Text="{Binding}" 
@@ -102,8 +100,59 @@
             </Style.Triggers>
         </Style>
     </Page.Resources>
-    
-    <Grid d:IsLocked="True">
-        <UniformGrid Name="UniformGrid1" Width="Auto" Height="Auto" Margin="0" />
+    <Page.Background>
+        <ImageBrush ImageSource="Images/bgmain.jpg"/>
+    </Page.Background>
+
+    <Grid Name="MainGrid">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Name="MainColumn1"/>
+            <ColumnDefinition Name="MainColumn2" Width="4*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.Background>
+            <ImageBrush ImageSource="Images/bgmain.jpg"/>
+        </Grid.Background>
+        <!--<Grid.RowDefinitions>
+            <RowDefinition Height="16*"/>
+            <RowDefinition Height="60*"/>
+            <RowDefinition Height="258*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Name="MainColumn1" Width="34*"/>
+            <ColumnDefinition Width="117*"/>
+            <ColumnDefinition Width="47*"/>
+            <ColumnDefinition Name="MainColumn2" Width="760*"/>
+        </Grid.ColumnDefinitions>-->
+        <Grid Name="BackGrid" Grid.Row="0" Grid.Column="0"  >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="16*"/>
+                <RowDefinition Height="60*"/>
+                <RowDefinition Height="258*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="34*"/>
+                <ColumnDefinition Width="117*"/>
+                <ColumnDefinition Width="47*"/>
+            </Grid.ColumnDefinitions>
+            <Button Name="Back" Grid.Column="1"  Grid.Row="1" BorderBrush="#00707070" Margin="0"  >
+                <Button.Template>
+                    <ControlTemplate>
+                        <Grid>
+                            <Border>
+                                <Border.Background>
+                                    <ImageBrush ImageSource="Images/back.png"/>
+                                </Border.Background>
+                            </Border>
+                        </Grid>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+        </Grid>
+        <UniformGrid Grid.Row="0" Grid.Column="1" Name="UniformGrid1" Width="Auto" Height="Auto" >
+            <UniformGrid.Background>
+                <ImageBrush/>
+            </UniformGrid.Background>
+        </UniformGrid>
     </Grid>
+
 </Page>
