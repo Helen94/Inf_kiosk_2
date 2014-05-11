@@ -8,12 +8,14 @@ namespace Inf_kiosk_2.Utils
 {
     public class Utils
     {
-         public static ImageBrush GetBrushFromBitmap(Bitmap sourceBitmap)
-         {
-             var bs = System.Windows.Interop.Imaging.CreateBitmapSourceFromHBitmap(sourceBitmap.GetHbitmap(),
-             IntPtr.Zero, Int32Rect.Empty, BitmapSizeOptions.FromEmptyOptions());
-             var ib = new ImageBrush {ImageSource = bs};
-             return ib;
-         }
+
+        public static ImageBrush GetBrushFromBitmap(Bitmap sourceBitmap)
+        {
+            BitmapSource bs = System.Windows.Interop.Imaging.CreateBitmapSourceFromHBitmap(sourceBitmap.GetHbitmap(),
+                IntPtr.Zero, Int32Rect.Empty, BitmapSizeOptions.FromEmptyOptions());
+            var ib = new ImageBrush();
+            ib.ImageSource = bs;
+            return ib;
+        }
     }
 }

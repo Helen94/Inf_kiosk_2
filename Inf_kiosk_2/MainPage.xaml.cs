@@ -41,7 +41,6 @@ namespace Inf_kiosk_2
         {
             InitializeComponent();
             InitializeContent();
-
             Back.Click += ButtonBack;
         }
 
@@ -51,7 +50,6 @@ namespace Inf_kiosk_2
 
             string cur = Directory.GetCurrentDirectory();
 
-            //UniformGrid1.Background = Utils.Utils.GetBrushFromBitmap(Properties.Resources.bgmain);
             string[] directories = Directory.GetDirectories(CurrentDir);
 
             DirectoryInfo directory = new DirectoryInfo(CurrentDir);
@@ -87,7 +85,9 @@ namespace Inf_kiosk_2
             foreach (string s in directories)
             {
 
+
                 Button = new Button { Content = Path.GetFileName(s) };
+
                 FileInfo fi = new FileInfo(s);
                 string ext = fi.Extension;
                 UniformGrid1.Children.Add(Button);
@@ -173,19 +173,17 @@ namespace Inf_kiosk_2
 
         }
 
+
         private void ButtonBack(object sender, RoutedEventArgs e)
         {
-            //NavigationService nav = NavigationService.GetNavigationService(this);
-            //if (nav != null) nav.Navigate(new Uri("DirectoryPage.xaml", UriKind.RelativeOrAbsolute));
             NavigationService nav = NavigationService.GetNavigationService(this);
             int intLocation = CurrentDir.LastIndexOf("\\");
-            CurrentDir = CurrentDir.Substring(0, intLocation); 
+            CurrentDir = CurrentDir.Substring(0, intLocation);
             if (nav != null)
             {
                 InitializeContent();
                 nav.Navigate(new Uri("MainPage.xaml", UriKind.RelativeOrAbsolute));
             }
-
         }
 
         private void ButtonText_Click(object sender, RoutedEventArgs e)
@@ -202,7 +200,6 @@ namespace Inf_kiosk_2
 
         private void ButtonImage_Click(object sender, RoutedEventArgs e)
         {
-
             NavigationService nav = NavigationService.GetNavigationService(this);
             if (nav != null) nav.Navigate(new Uri("ImagePage.xaml", UriKind.RelativeOrAbsolute));
         }
@@ -220,7 +217,7 @@ namespace Inf_kiosk_2
                 img.Source = iconBitmapImage;
             }
         }
-
        
     }
 }
+
