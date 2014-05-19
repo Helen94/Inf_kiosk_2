@@ -6,6 +6,37 @@
       mc:Ignorable="d" 
       d:DesignHeight="650" d:DesignWidth="950"
 	Title="TextPage">
+    <Page.Resources>
+        <Storyboard x:Key="ExpandStoryboard">
+            <DoubleAnimation Storyboard.TargetProperty="RenderTransform.ScaleX" 
+        To="1" Duration="0:0:0.1" />
+            <DoubleAnimation Storyboard.TargetProperty="RenderTransform.ScaleY" 
+        To="1" Duration="0:0:0.1" />
+        </Storyboard>
+        <Storyboard x:Key="CollapseStoryboard">
+            <DoubleAnimation Storyboard.TargetProperty="RenderTransform.ScaleX" 
+        To="1.02" Duration="0:0:0.1" />
+            <DoubleAnimation Storyboard.TargetProperty="RenderTransform.ScaleY" 
+        To="1.02" Duration="0:0:0.1" />
+        </Storyboard>
+        <Style TargetType="Button">
+            <Style.Setters>
+                <Setter Property="RenderTransform">
+                    <Setter.Value>
+                        <ScaleTransform ScaleX="1" ScaleY="1" CenterX="100" CenterY="100"/>
+                    </Setter.Value>
+                </Setter>
+            </Style.Setters>
+            <Style.Triggers>
+                <EventTrigger RoutedEvent="Button.MouseEnter">
+                    <BeginStoryboard Storyboard="{StaticResource CollapseStoryboard}" />
+                </EventTrigger>
+                <EventTrigger RoutedEvent="Button.MouseLeave">
+                    <BeginStoryboard Storyboard="{StaticResource ExpandStoryboard}" />
+                </EventTrigger>
+            </Style.Triggers>
+        </Style>
+    </Page.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="18*"/>
@@ -36,7 +67,7 @@
                 </ControlTemplate>
             </Button.Template>
         </Button>
-        <RichTextBox  Name="RichTextBox1" Grid.RowSpan="2" Grid.Column="3" Grid.Row="1" VerticalScrollBarVisibility="Visible" >
+        <RichTextBox  Name="RichTextBox1" Grid.RowSpan="2" Grid.Column="3" Grid.Row="1" VerticalScrollBarVisibility="Visible" IsReadOnly="True" >
             <RichTextBox.BorderBrush>
                 <LinearGradientBrush EndPoint="0,20" MappingMode="Absolute" StartPoint="0,0">
                     <GradientStop Color="#FFABADB3" Offset="0.05"/>

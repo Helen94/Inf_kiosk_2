@@ -1,7 +1,8 @@
 ﻿using System;
+using System.IO;
 using System.Windows;
+using System.Windows.Media;
 using System.Windows.Media.Animation;
-using System.Windows.Navigation;
 
 namespace Inf_kiosk_2
 {
@@ -10,25 +11,28 @@ namespace Inf_kiosk_2
     /// </summary>
     public partial class VideoPage
     {
+        public Uri VideoFile { get; private set; }
+
         public VideoPage()
         {
             InitializeComponent();
-            Back.Click +=Back_Click;
+            Back.Click += Back_Click;
+        }
+
+        public VideoPage(string videoFile):this()
+        {
+            if (String.IsNullOrWhiteSpace(videoFile)) return;
+            if (!File.Exists(videoFile)) return;
+
+            VideoFile = new Uri(videoFile, UriKind.Relative);
+            DataContext = this;
         }
 
         private void Back_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService nav = NavigationService.GetNavigationService(this);
-            if (nav != null) nav.Navigate(new Uri("MainPage.xaml", UriKind.RelativeOrAbsolute));
+            MainPage.OpenPage(new MainPage(), this);
         }
         
-        private void Video_Loaded(object sender, RoutedEventArgs e)
-        {
-            //Video.Source = new Uri(@"C:\Users\Елена\Desktop\Inf_kiosk_2\Inf_kiosk_2\bin\Debug\1.avi");
-            //Video.Play();
-
-        }
-
         private void Video_MediaOpened(object sender, RoutedEventArgs e)
         {
           
@@ -42,6 +46,7 @@ namespace Inf_kiosk_2
         {
             if (_goPlayer) return;
 
+            //all ok
             mediaStoryboard.Storyboard.Seek(VPage, TimeSpan.FromSeconds(TimerSlider.Value), TimeSeekOrigin.BeginTime); 
         }
 
@@ -49,7 +54,6 @@ namespace Inf_kiosk_2
 
         private void Storyboard_CurrentTimeInvalidated(object sender, EventArgs e)
         {
-           
             var storyboardClock = (Clock)sender;
 
             if (storyboardClock.CurrentProgress == null) return;

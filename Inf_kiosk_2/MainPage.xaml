@@ -45,7 +45,7 @@
                                             </Image>
                                             <TextBlock Grid.ColumnSpan="5" Grid.Column="0" Grid.Row="0" Grid.RowSpan="3" VerticalAlignment="Stretch" TextAlignment="Center" 
                                                    HorizontalAlignment="Stretch" Text="{Binding}" 
-                                                   TextWrapping="Wrap" Foreground="#FF007D00">
+                                                   TextWrapping="Wrap" Foreground="#FF064906" FontFamily="Segoe WP Semibold">
                                                 <TextBlock.Background>
                                                     <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
                                                         <GradientStop Color="#6D29D319" Offset="0.152" />
@@ -103,7 +103,6 @@
     <Page.Background>
         <ImageBrush ImageSource="Images/bgmain.jpg"/>
     </Page.Background>
-
     <Grid Name="MainGrid">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Name="MainColumn1"/>
@@ -112,18 +111,7 @@
         <Grid.Background>
             <ImageBrush ImageSource="Images/bgmain.jpg"/>
         </Grid.Background>
-        <!--<Grid.RowDefinitions>
-            <RowDefinition Height="16*"/>
-            <RowDefinition Height="60*"/>
-            <RowDefinition Height="258*"/>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Name="MainColumn1" Width="34*"/>
-            <ColumnDefinition Width="117*"/>
-            <ColumnDefinition Width="47*"/>
-            <ColumnDefinition Name="MainColumn2" Width="760*"/>
-        </Grid.ColumnDefinitions>-->
-        <Grid Name="BackGrid" Grid.Row="0" Grid.Column="0"  >
+        <Grid Name="BackGrid" Grid.Row="0" Grid.Column="0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="16*"/>
                 <RowDefinition Height="60*"/>
