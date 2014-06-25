@@ -57,10 +57,20 @@
             <RowDefinition Height="22*"/>
         </Grid.RowDefinitions>
         <Grid.Background>
-            <ImageBrush ImageSource="Images/bgmain.jpg"/>
+            <ImageBrush ImageSource="Images/new_bg.jpg"/>
         </Grid.Background>
-        <Image Name="ImageBoard"  Grid.ColumnSpan="5" Grid.Column="3" Grid.Row="1" Grid.RowSpan="2"/>
-
+        <Border Grid.ColumnSpan="5" Grid.Column="3" Grid.Row="1" Grid.RowSpan="2" BorderThickness="15">
+            <Border.BorderBrush>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#CC9D29B6" Offset="0.004"/>
+                    <GradientStop Color="#CC9D29B6" Offset="1"/>
+                    <GradientStop Color="#99A5B949" Offset="0.247"/>
+                    <GradientStop Color="#99A5B949" Offset="0.753"/>
+                    <GradientStop Color="#99A5B949" Offset="0.498"/>
+                </LinearGradientBrush>
+            </Border.BorderBrush>
+            <Image Name="ImageBoard" Stretch="UniformToFill"/>
+        </Border> 
         <Button Name="Back" Grid.Column="1"  Grid.Row="1"  >
             <Button.Template>
                 <ControlTemplate>

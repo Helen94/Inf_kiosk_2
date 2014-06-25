@@ -194,6 +194,39 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gribok1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\new_bg.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bg_solnishko.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\new_bg.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\bg_solnishko.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\new_text.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ping_directory.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\folder_orange_open_4859.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ping_directory.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\new_text.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\new_directory.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

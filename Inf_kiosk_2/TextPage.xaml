@@ -51,7 +51,7 @@
             <RowDefinition Height="22*"/>
         </Grid.RowDefinitions>
         <Grid.Background>
-            <ImageBrush ImageSource="Images/bgmain.jpg"/>
+            <ImageBrush ImageSource="Images/new_bg.jpg"/>
         </Grid.Background>
         <Button Name="Back" Grid.Row="1" Grid.Column="1" >
             <Button.Template>
@@ -66,14 +66,17 @@
                 </ControlTemplate>
             </Button.Template>
         </Button>
-        <RichTextBox  Name="RichTextBox1" Grid.RowSpan="2" Grid.Column="3" Grid.Row="1" VerticalScrollBarVisibility="Visible" IsReadOnly="True" AutoWordSelection="False" AllowDrop="False" SelectionOpacity="0" >
+        <RichTextBox  Name="RichTextBox1" Grid.RowSpan="2" Grid.Column="3" Grid.Row="1" VerticalScrollBarVisibility="Visible" IsReadOnly="True" AutoWordSelection="False" AllowDrop="False" SelectionOpacity="0" BorderThickness="15"  >
             <RichTextBox.BorderBrush>
-                <LinearGradientBrush EndPoint="0,20" MappingMode="Absolute" StartPoint="0,0">
-                    <GradientStop Color="#FFABADB3" Offset="0.05"/>
-                    <GradientStop Color="#FFE2E3EA" Offset="0.07"/>
-                    <GradientStop Color="#FF4FA45B" Offset="1"/>
+                <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                    <GradientStop Color="#CC9D29B6"/>
+                    <GradientStop Color="#99A5B949" Offset="0.49"/>
+                    <GradientStop Color="#CC9D29B6" Offset="1"/>
+                    <GradientStop Color="#99A5B949" Offset="0.251"/>
+                    <GradientStop Color="#99A5B949" Offset="0.736"/>
                 </LinearGradientBrush>
             </RichTextBox.BorderBrush>
+
             <FlowDocument>
                 <Paragraph>
                     <Run/>

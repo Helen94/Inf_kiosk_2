@@ -69,7 +69,7 @@ namespace Inf_kiosk_2
             foreach (string s in childItems)
             {
                 Button = new Button { Content = Path.GetFileName(s) };
-
+                //Button.Tag = 
                 var fi = new FileInfo(s);
                 string ext = fi.Extension;
                 UniformGrid1.Children.Add(Button);
@@ -158,10 +158,10 @@ namespace Inf_kiosk_2
             string ext = Path.GetExtension(img.DataContext.ToString());
             
             string image;
-            if (TextExt.Contains(ext)) image = "document.png";
+            if (TextExt.Contains(ext)) image = "new_text.png";
             else if (ImageExt.Contains(ext)) image = "image.png";
             else if (VideoExt.Contains(ext)) image = "video.png";
-            else image = "directory.png";
+            else image = "new_directory.png";
 
             ImageSource imageSource = new BitmapImage(new Uri(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, image)));
             img.Source = imageSource;
