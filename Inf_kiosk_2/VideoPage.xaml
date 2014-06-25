@@ -6,7 +6,6 @@
       xmlns:infKiosk2="clr-namespace:Inf_kiosk_2"
       mc:Ignorable="d" 
       d:DesignHeight="650" d:DesignWidth="950"
-	  Title="VideoPage"
       Name="VPage"
       d:DataContext="{d:DesignInstance Type=infKiosk2:VideoPage, IsDesignTimeCreatable=True}">  
     <Page.Resources>
