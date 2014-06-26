@@ -68,8 +68,7 @@ namespace Inf_kiosk_2
 
             foreach (string s in childItems)
             {
-                Button = new Button { Content = Path.GetFileName(s) };
-                //Button.Tag = 
+                Button = new Button { Content = Path.GetFileNameWithoutExtension(s), Tag = Path.GetFileName(s)}; 
                 var fi = new FileInfo(s);
                 string ext = fi.Extension;
                 UniformGrid1.Children.Add(Button);
@@ -107,7 +106,7 @@ namespace Inf_kiosk_2
         private void ButtonDirectory(object sender, RoutedEventArgs e)
         {
             var button = sender as Button;
-            if (button != null) _currentDir += "\\" + button.Content;
+            if (button != null) _currentDir += "\\" + button.Tag;
 
             OpenPage(new MainPage(), this, InitializeContent);
         }
@@ -121,7 +120,7 @@ namespace Inf_kiosk_2
 
         private static string GetPathFromContent(ContentControl contentControl)
         {
-            return contentControl == null ? null : Path.Combine(_currentDir, contentControl.Content.ToString());
+            return contentControl == null ? null : Path.Combine(_currentDir, contentControl.Tag.ToString());
         }
 
         private void ButtonText_Click(object sender, RoutedEventArgs e)
