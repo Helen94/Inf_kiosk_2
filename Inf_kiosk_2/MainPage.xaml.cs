@@ -110,6 +110,7 @@ namespace Inf_kiosk_2
 
             OpenPage(new MainPage(), this, InitializeContent);
         }
+
         private void ButtonBack(object sender, RoutedEventArgs e)
         {
             int intLocation = _currentDir.LastIndexOf("\\", StringComparison.Ordinal);
@@ -154,7 +155,8 @@ namespace Inf_kiosk_2
             var img = sender as Image;
             if (img == null) return;
 
-            string ext = Path.GetExtension(img.DataContext.ToString());
+            // string ext = Path.GetExtension(img.DataContext.ToString());
+            string ext = Path.GetExtension(img.Tag.ToString());
             
             string image;
             if (TextExt.Contains(ext)) image = "new_text.png";
@@ -162,8 +164,12 @@ namespace Inf_kiosk_2
             else if (VideoExt.Contains(ext)) image = "video.png";
             else image = "new_directory.png";
 
-            ImageSource imageSource = new BitmapImage(new Uri(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, image)));
+            string baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
+            string unionPath = Path.Combine(baseDirectory, image);
+            var uri = new Uri(unionPath);
+            ImageSource imageSource = new BitmapImage(uri);
             img.Source = imageSource;
+
         }
        
     }
