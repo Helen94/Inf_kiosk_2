@@ -1,8 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Windows;
 using System.Windows.Documents;
-using System.Windows.Navigation;
 
 namespace Inf_kiosk_2
 {
@@ -11,27 +11,39 @@ namespace Inf_kiosk_2
     /// </summary>
     public partial class TextPage
     {
-        public TextPage()
+        private static Dictionary<string, string> formats = new Dictionary<string, string>
+        {
+            {".txt", DataFormats.Text},
+            {".rtf", DataFormats.Rtf}
+        };
+
+        public TextPage(string fileName)
         {
             InitializeComponent();
-
-            TextRange tr = new TextRange(
-            RichTextBox1.Document.ContentStart, RichTextBox1.Document.ContentEnd);
-
-            using (FileStream fs = File.Open("1.rtf", FileMode.Open))
-            {
-                tr.Load(fs, DataFormats.Rtf);
-            }
-
+            
             Back.Click += Back_Click;
+
+
+            if (!File.Exists(fileName)) return;
+
+            var tr = new TextRange(RichTextBox1.Document.ContentStart, RichTextBox1.Document.ContentEnd);
+
+            string ext = Path.GetExtension(fileName);
+            if (String.IsNullOrWhiteSpace(ext)) return;
+            
+            string format;
+            bool valueFound = formats.TryGetValue(ext, out format);
+            if (!valueFound) return;
+
+            using (FileStream fs = File.Open(fileName, FileMode.Open))
+            {
+                tr.Load(fs, format);
+            }
         }
 
         private void Back_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService nav = NavigationService.GetNavigationService(this);
-            if (nav != null) nav.Navigate(new Uri("MainPage.xaml", UriKind.RelativeOrAbsolute));
+            MainPage.OpenPage(new MainPage(), this);
         }
-
-       
     }
 }

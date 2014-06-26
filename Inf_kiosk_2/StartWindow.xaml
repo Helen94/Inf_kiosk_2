@@ -1,0 +1,5 @@
+﻿<NavigationWindow x:Class="Inf_kiosk_2.StartWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Source="MainPage.xaml" WindowState="Maximized" WindowStyle="None">
+</NavigationWindow>

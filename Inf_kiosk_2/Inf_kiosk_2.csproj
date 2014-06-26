@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Inf_kiosk_2</RootNamespace>
     <AssemblyName>Inf_kiosk_2</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WarningLevel>4</WarningLevel>
@@ -28,7 +28,7 @@
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
-    <DebugType>pdbonly</DebugType>
+    <DebugType>none</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
@@ -61,17 +61,16 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="DirectoryPage.xaml.cs">
-      <DependentUpon>DirectoryPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="ImagePage.xaml.cs">
       <DependentUpon>ImagePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="StartWindow.xaml.cs">
+      <DependentUpon>StartWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="TableSize.cs" />
     <Compile Include="TextPage.xaml.cs">
       <DependentUpon>TextPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Utils\Utils.cs" />
     <Compile Include="VideoPage.xaml.cs">
       <DependentUpon>VideoPage.xaml</DependentUpon>
     </Compile>
@@ -97,18 +96,42 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Resource Include="Images\back.png" />
-    <Resource Include="Images\back2.png" />
-    <Resource Include="Images\bgmain.jpg" />
-    <Resource Include="Images\directory.png" />
-    <Resource Include="Images\document.png" />
-    <Resource Include="Images\forward.png" />
-    <Resource Include="Images\image.png" />
-    <Resource Include="Images\pause.png" />
-    <Resource Include="Images\play.png" />
-    <Resource Include="Images\proba.jpg" />
-    <Resource Include="Images\stop.png" />
-    <Resource Include="Images\video.png" />
+    <Resource Include="Images\back.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\back2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\bgmain.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\directory.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\document.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\forward.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\image.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\pause.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\play.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\proba.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\stop.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\video.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -121,15 +144,15 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Page Include="DirectoryPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="ImagePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="MainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="StartWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -169,6 +192,44 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\proba.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Penguins.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gribok1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\new_bg.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bg_solnishko.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\new_bg.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\bg_solnishko.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\new_text.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ping_directory.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\folder_orange_open_4859.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ping_directory.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\new_text.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\new_directory.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
