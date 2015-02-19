@@ -155,7 +155,6 @@ namespace Inf_kiosk_2
             var img = sender as Image;
             if (img == null) return;
 
-            // string ext = Path.GetExtension(img.DataContext.ToString());
             string ext = Path.GetExtension(img.Tag.ToString());
             
             string image;

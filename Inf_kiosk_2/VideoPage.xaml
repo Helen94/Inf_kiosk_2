@@ -90,16 +90,16 @@
             <RowDefinition Height="44*"/>
         </Grid.RowDefinitions>
         <Grid.Background>
-            <ImageBrush ImageSource="Images/new_bg.jpg"/>
+            <ImageBrush ImageSource="Images/background.png"/>
         </Grid.Background>
         <Border Grid.Row="1" Grid.RowSpan="2" Grid.Column="3" Grid.ColumnSpan="7" BorderThickness="15">
             <Border.BorderBrush>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="#CC9D29B6" Offset="0.004"/>
-                    <GradientStop Color="#CC9D29B6" Offset="1"/>
-                    <GradientStop Color="#99A5B949" Offset="0.259"/>
-                    <GradientStop Color="#99A5B949" Offset="0.824"/>
-                    <GradientStop Color="#99A5B949" Offset="0.502"/>
+                    <GradientStop Color="#CCF59811" Offset="0.004"/>
+                    <GradientStop Color="#CCF59811" Offset="1"/>
+                    <GradientStop Color="#9940D9FB" Offset="0.25"/>
+                    <GradientStop Color="#9940D9FB" Offset="0.824"/>
+                    <GradientStop Color="#9984F138" Offset="0.502"/>
                 </LinearGradientBrush>
             </Border.BorderBrush>
             <MediaElement x:Name="Video" LoadedBehavior="Manual" UnloadedBehavior="Close" MediaOpened="Video_MediaOpened" />
@@ -110,7 +110,7 @@
                     <Grid>
                         <Border>
                             <Border.Background>
-                                <ImageBrush ImageSource="Images/pause.png"></ImageBrush>
+                                <ImageBrush ImageSource="Images/pause_m.png"></ImageBrush>
                             </Border.Background>
                         </Border>
                     </Grid>
@@ -123,7 +123,7 @@
                     <Grid>
                         <Border>
                             <Border.Background>
-                                <ImageBrush ImageSource="Images/stop.png"></ImageBrush>
+                                <ImageBrush ImageSource="Images/stop_m.png"></ImageBrush>
                             </Border.Background>
                         </Border>
                     </Grid>
@@ -136,7 +136,7 @@
                     <Grid>
                         <Border>
                             <Border.Background>
-                                <ImageBrush ImageSource="Images/play.png"></ImageBrush>
+                                <ImageBrush ImageSource="Images/universal.png"></ImageBrush>
                             </Border.Background>
                         </Border>
                     </Grid>
@@ -149,14 +149,14 @@
                     <Grid>
                         <Border>
                             <Border.Background>
-                                <ImageBrush ImageSource="Images/back.png"></ImageBrush>
+                                <ImageBrush ImageSource="Images/main_back.png"></ImageBrush>
                             </Border.Background>
                         </Border>
                     </Grid>
                 </ControlTemplate>
             </Button.Template>
         </Button>
-        <Slider  x:Name="TimerSlider"  ValueChanged="TimerSlider_ValueChanged" Grid.Column="3" Grid.Row="3"  Grid.ColumnSpan="7" Background="#CC9D29B6" >
+        <Slider  x:Name="TimerSlider"  ValueChanged="TimerSlider_ValueChanged" Grid.Column="3" Grid.Row="3"  Grid.ColumnSpan="7" Background="#CCF59811" >
         </Slider>
     </Grid>
 </Page>

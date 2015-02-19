@@ -57,16 +57,16 @@
             <RowDefinition Height="22*"/>
         </Grid.RowDefinitions>
         <Grid.Background>
-            <ImageBrush ImageSource="Images/new_bg.jpg"/>
+            <ImageBrush ImageSource="Images/background.png"/>
         </Grid.Background>
         <Border Grid.ColumnSpan="5" Grid.Column="3" Grid.Row="1" Grid.RowSpan="2" BorderThickness="15">
             <Border.BorderBrush>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="#CC9D29B6" Offset="0.004"/>
-                    <GradientStop Color="#CC9D29B6" Offset="1"/>
-                    <GradientStop Color="#99A5B949" Offset="0.247"/>
-                    <GradientStop Color="#99A5B949" Offset="0.753"/>
-                    <GradientStop Color="#99A5B949" Offset="0.498"/>
+                    <GradientStop Color="#CCF59811" Offset="0.004"/>
+                    <GradientStop Color="#CCF59811" Offset="1"/>
+                    <GradientStop Color="#9940D9FB" Offset="0.247"/>
+                    <GradientStop Color="#9940D9FB" Offset="0.753"/>
+                    <GradientStop Color="#9984F138" Offset="0.498"/>
                 </LinearGradientBrush>
             </Border.BorderBrush>
             <Image Name="ImageBoard" Stretch="UniformToFill"/>
@@ -77,7 +77,7 @@
                     <Grid>
                         <Border>
                             <Border.Background>
-                                <ImageBrush ImageSource="Images/back.png"/>
+                                <ImageBrush ImageSource="Images/main_back.png"/>
                             </Border.Background>
                         </Border>
                     </Grid>
@@ -90,7 +90,7 @@
                     <Grid>
                         <Border>
                             <Border.Background>
-                                <ImageBrush ImageSource="Images/back2.png"/>
+                                <ImageBrush ImageSource="Images/left_ph.png"/>
                             </Border.Background>
                         </Border>
                     </Grid>
@@ -103,7 +103,7 @@
                     <Grid>
                         <Border>
                             <Border.Background>
-                                <ImageBrush ImageSource="Images/forward.png"/>
+                                <ImageBrush ImageSource="Images/universal.png"/>
                             </Border.Background>
                         </Border>
                     </Grid>

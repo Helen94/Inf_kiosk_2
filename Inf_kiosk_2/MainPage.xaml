@@ -45,14 +45,14 @@
                                             </Image>
                                             <TextBlock Grid.ColumnSpan="5" Grid.Column="0" Grid.Row="0" Grid.RowSpan="3" VerticalAlignment="Stretch" TextAlignment="Center" 
                                                    HorizontalAlignment="Stretch" Text="{Binding}" 
-                                                   TextWrapping="Wrap" Foreground="#FFF3FF00" FontFamily="Segoe WP Semibold" FontSize="42">
+                                                   TextWrapping="Wrap" Foreground="#FFF9B115" FontFamily="Segoe WP Semibold" FontSize="42">
                                                 <TextBlock.Background>
                                                     <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
-                                                        <GradientStop Color="#7F830B5D" Offset="0.259" />
-                                                        <GradientStop Color="#33CE28C6" Offset="0.498" />
-                                                        <GradientStop Color="#7F830B5D" Offset="0.766" />
-                                                        <GradientStop Color="#A5830B5D" Offset="0" />
-                                                        <GradientStop Color="#A5830B5D" Offset="1" />
+                                                        <GradientStop Color="#99A60934" Offset="0.259" />
+                                                        <GradientStop Color="#33CE2883" Offset="0.498" />
+                                                        <GradientStop Color="#99A60934" Offset="0.766" />
+                                                        <GradientStop Color="#B2B90740" Offset="0" />
+                                                        <GradientStop Color="#B2B90740" Offset="1" />
                                                     </LinearGradientBrush>
                                                 </TextBlock.Background>
                                             </TextBlock>
@@ -101,7 +101,7 @@
         </Style>
     </Page.Resources>
     <Page.Background>
-        <ImageBrush ImageSource="Images/bgmain.jpg"/>
+        <ImageBrush ImageSource="Images/background.png"/>
     </Page.Background>
     <Grid Name="MainGrid">
         <Grid.ColumnDefinitions>
@@ -109,7 +109,7 @@
             <ColumnDefinition Name="MainColumn2" Width="4*"/>
         </Grid.ColumnDefinitions>
         <Grid.Background>
-            <ImageBrush ImageSource="Images/new_bg.jpg"/>
+            <ImageBrush ImageSource="Images/background.png"/>
         </Grid.Background>
         <Grid Name="BackGrid" Grid.Row="0" Grid.Column="0">
             <Grid.RowDefinitions>
@@ -128,7 +128,7 @@
                         <Grid>
                             <Border>
                                 <Border.Background>
-                                    <ImageBrush ImageSource="Images/back.png"/>
+                                    <ImageBrush ImageSource="Images/main_back.png"/>
                                 </Border.Background>
                             </Border>
                         </Grid>
